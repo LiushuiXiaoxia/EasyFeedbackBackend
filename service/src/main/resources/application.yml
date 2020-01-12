@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: easy-feedback-api
+  data:
+    mongodb:
+      uri=mongodb://nam@localhost:27017/test:

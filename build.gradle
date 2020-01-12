@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+group 'cn.mycommons'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        repositories {
+            mavenLocal()
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+            maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+            maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+            google()
+            jcenter()
+            mavenCentral()
+        }
+    }
+}
