@@ -1,9 +1,13 @@
+println("======================")
+println("GITHUB_CI = $GITHUB_CI")
+println("======================")
+
 buildscript {
     repositories {
         mavenLocal()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        if (!Boolean.parseBoolean(GITHUB_CI)) {
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        }
         google()
         jcenter()
         mavenCentral()
@@ -17,9 +21,9 @@ allprojects {
     repositories {
         repositories {
             mavenLocal()
-            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-            maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-            maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+            if (!Boolean.parseBoolean(GITHUB_CI)) {
+                maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+            }
             google()
             jcenter()
             mavenCentral()
