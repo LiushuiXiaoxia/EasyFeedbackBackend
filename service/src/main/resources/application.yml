@@ -6,4 +6,4 @@ spring:
     name: easy-feedback-api
   data:
     mongodb:
-      uri=mongodb://nam@localhost:27017/test:
+      uri: mongodb://localhost:27017/feedback
