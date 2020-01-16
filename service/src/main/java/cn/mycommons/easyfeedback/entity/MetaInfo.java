@@ -1,4 +1,4 @@
-package cn.mycommons.easyfeedback.dto;
+package cn.mycommons.easyfeedback.entity;
 
 import lombok.Data;
 

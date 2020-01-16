@@ -1,4 +1,4 @@
-package cn.mycommons.easyfeedback.dto;
+package cn.mycommons.easyfeedback.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -19,5 +19,6 @@ public class FeedbackInfo {
     private String contact;
     private Date time;
 
+    private int status = 0;
     private Map<String, Object> extra;
 }

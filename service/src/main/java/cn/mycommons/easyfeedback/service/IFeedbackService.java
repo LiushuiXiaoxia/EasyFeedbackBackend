@@ -1,14 +1,20 @@
 package cn.mycommons.easyfeedback.service;
 
-import cn.mycommons.easyfeedback.dto.FeedbackInfo;
-
-import java.util.List;
+import cn.mycommons.easyfeedback.dto.feedback.FeedbackDto;
+import cn.mycommons.easyfeedback.dto.feedback.status.UpdateStatusReq;
+import org.springframework.data.domain.Page;
 
 public interface IFeedbackService {
 
-    String insert(FeedbackInfo info);
+    String insert(FeedbackDto dto);
 
-    List<FeedbackInfo> findAll();
+    Page<FeedbackDto> list(int page, int size);
 
-    FeedbackInfo findById(String id);
+    Page<FeedbackDto> search(FeedbackDto search, int page, int size);
+
+    FeedbackDto findById(String id);
+
+    FeedbackDto update(String id, FeedbackDto dto);
+
+    int updateStatus(String id, UpdateStatusReq req);
 }
