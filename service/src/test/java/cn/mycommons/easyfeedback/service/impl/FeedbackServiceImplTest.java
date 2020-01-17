@@ -23,12 +23,9 @@ class FeedbackServiceImplTest {
     @Test
     void insert() {
         FeedbackDto info = new FeedbackDto();
-        info.setTime(new Date());
         info.setContact("10086");
         info.setDesc("垃圾软件，毁我青春");
 
-        info.setPkgName("cn.mycommons.feedback.example");
-        info.setPlatform("Android");
 
         Map<String, Object> extra = new HashMap<>();
         extra.put("url2", "https://www.baid.com");
@@ -69,12 +66,8 @@ class FeedbackServiceImplTest {
     @Test
     void update() {
         FeedbackDto dto = new FeedbackDto();
-        dto.setTime(new Date());
         dto.setContact("10086");
         dto.setDesc("垃圾软件，毁我青春");
-
-        dto.setPkgName("cn.mycommons.feedback.example");
-        dto.setPlatform("Android");
 
         Map<String, Object> extra = new HashMap<>();
         extra.put("url2", "https://www.baid.com");

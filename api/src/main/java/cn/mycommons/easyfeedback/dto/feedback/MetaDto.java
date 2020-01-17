@@ -2,10 +2,10 @@ package cn.mycommons.easyfeedback.dto.feedback;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 public class MetaDto {
-
-    private Date time;
+    private String time;
+    private String pkgName;
+    private String platform;
+    private String appName;
 }

@@ -7,5 +7,7 @@ import java.util.Date;
 @Data
 public class MetaInfo {
 
-    private Date time;
+    private String time;
+
+    private String pkgName;
 }
