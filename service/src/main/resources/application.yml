@@ -7,3 +7,12 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/feedback
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 100MB
+      location:
+
+upload:
+  dir: /Users/xiaqiulei/upload
