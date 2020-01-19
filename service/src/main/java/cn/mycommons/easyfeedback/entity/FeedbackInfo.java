@@ -20,9 +20,9 @@ public class FeedbackInfo {
     private Map<String, Object> extra;
     private MetaDto meta;
 
-    private int status = 0;
+    private Integer status;
 
-    private boolean delete = false;
-    private Date createAt = new Date();
-    private Date updateAt = new Date();
+    private Boolean delete = false;
+    private Date createAt = null;
+    private Date updateAt = null;
 }

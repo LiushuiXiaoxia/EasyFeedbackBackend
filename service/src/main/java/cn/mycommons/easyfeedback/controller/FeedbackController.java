@@ -30,8 +30,8 @@ public class FeedbackController {
         return RespUtil.page(data);
     }
 
-    @GetMapping("/search")
-    public PageResp<FeedbackDto> search(FeedbackDto search,
+    @PostMapping("/search")
+    public PageResp<FeedbackDto> search(@RequestBody FeedbackDto search,
                                         @RequestParam(defaultValue = "1") int page,
                                         @RequestParam(defaultValue = "10") int size) {
         Page<FeedbackDto> data = service.search(search, page, size);

@@ -1,6 +1,7 @@
 package cn.mycommons.easyfeedback.service.impl;
 
 import cn.mycommons.easyfeedback.dto.feedback.FeedbackDto;
+import cn.mycommons.easyfeedback.dto.feedback.MetaDto;
 import cn.mycommons.easyfeedback.entity.FeedbackStatus;
 import cn.mycommons.easyfeedback.service.IFeedbackService;
 import lombok.extern.slf4j.Slf4j;
@@ -58,9 +59,12 @@ class FeedbackServiceImplTest {
     void search() {
         FeedbackDto search = new FeedbackDto();
         search.setStatus(FeedbackStatus.Created.getStatus());
+        search.setMeta(new MetaDto());
+        search.getMeta().setPlatform("Android");
+
         Page<FeedbackDto> page = service.search(search, 1, 20);
 
-        log.info("page = {}", page.getContent());
+        page.forEach(info -> log.info("page.info = {}", info));
     }
 
     @Test

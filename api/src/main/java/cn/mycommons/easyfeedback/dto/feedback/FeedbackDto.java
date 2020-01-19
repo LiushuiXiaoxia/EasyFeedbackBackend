@@ -17,5 +17,5 @@ public class FeedbackDto {
     private Map<String, Object> extra;
     private MetaDto meta;
 
-    private int status = 0;
+    private Integer status;
 }

@@ -11,10 +11,12 @@ import cn.mycommons.easyfeedback.util.PageUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +34,7 @@ public class FeedbackServiceImpl implements IFeedbackService {
     public String insert(FeedbackDto dto) {
         FeedbackInfo info = FeedbackBeanUtil.dto2Info(dto);
         info.setStatus(FeedbackStatus.Created.getStatus());
+        info.setCreateAt(new Date());
         log.info("info = {}", info);
 
         FeedbackInfo ret = feedbackRepo.insert(info);
@@ -62,12 +65,12 @@ public class FeedbackServiceImpl implements IFeedbackService {
             search = new FeedbackDto();
         }
 
-        Example<FeedbackInfo> query = Example.of(FeedbackBeanUtil.dto2Info(search));
+        Example<FeedbackInfo> query = Example.of(FeedbackBeanUtil.dto2Info(search), ExampleMatcher.matching());
         log.info("query info = {}", query);
 
         PageRequest request = PageRequest.of(page - 1, size);
         Page<FeedbackInfo> all = feedbackRepo.findAll(query, request);
-        log.info("find all size = {}", all.getNumber());
+        log.info("find all size = {}", all.getNumberOfElements());
 
         List<FeedbackDto> list = all.stream()
                 .map(FeedbackBeanUtil::info2Dot)
@@ -107,6 +110,8 @@ public class FeedbackServiceImpl implements IFeedbackService {
         if (req != null && optional.isPresent()) {
             FeedbackInfo info = optional.get();
             info.setStatus(req.getStatus());
+            info.setUpdateAt(new Date());
+
             FeedbackInfo newInfo = feedbackRepo.save(info);
             return newInfo.getStatus();
         }
