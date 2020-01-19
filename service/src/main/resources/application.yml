@@ -2,6 +2,9 @@ server:
   port: 8081
 
 spring:
+  aop:
+    auto: true
+    proxy-target-class: false
   application:
     name: easy-feedback-api
   data:
