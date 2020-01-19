@@ -49,7 +49,7 @@ public class FeedbackController {
         return CommonResp.success(service.update(id, dto));
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/status/{id}")
     public CommonResp<Integer> updateStatus(@PathVariable("id") String id,
                                             @RequestBody UpdateStatusReq req) {
         return CommonResp.success(service.updateStatus(id, req));

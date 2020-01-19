@@ -58,6 +58,10 @@ public class FeedbackServiceImpl implements IFeedbackService {
     public Page<FeedbackDto> search(FeedbackDto search, int page, int size) {
         size = Math.min(size, MAX_PAGE_SIZE);
 
+        if (search == null) {
+            search = new FeedbackDto();
+        }
+
         Example<FeedbackInfo> query = Example.of(FeedbackBeanUtil.dto2Info(search));
         log.info("query info = {}", query);
 
