@@ -5,6 +5,10 @@ plugins {
 group 'cn.mycommons'
 version '1.0-SNAPSHOT'
 
+jar {
+    baseName = 'feedback-api'
+}
+
 sourceCompatibility = 1.8
 
 configurations {
